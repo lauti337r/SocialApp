@@ -1,0 +1,27 @@
+﻿<Grid xmlns="http://xamarin.com/schemas/2014/forms"
+      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+      BackgroundColor="White"
+      x:Class="SocialApp.Views.Dialog">
+    <Grid.RowDefinitions>
+        <RowDefinition Height="50" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="50" />
+    </Grid.RowDefinitions>
+
+    <BoxView Color="Black" />
+    <Label Text="{Binding Title}"
+           Style="{DynamicResource TitleStyle}"
+           Margin="20,5"
+           VerticalOptions="Center"
+           TextColor="White" />
+    <Label Text="{Binding Message}"
+           Margin="20,0,20,10"
+           Grid.Row="1" />
+    <Button Text="Close"
+            Command="{Binding CloseCommand}"
+            HorizontalOptions="FillAndExpand"
+            TextColor="White"
+            BackgroundColor="Gray"
+            Margin="10,0,10,10"
+            Grid.Row="2"/>
+</Grid>

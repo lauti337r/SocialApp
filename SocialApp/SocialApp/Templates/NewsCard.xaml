@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SocialApp.Templates.NewsCard">
+  <ContentView.Content>
+      <StackLayout HeightRequest="250" VerticalOptions="StartAndExpand" Margin="15">
+          <Image Source="{Binding Url}" HeightRequest="150" Aspect="AspectFit" />
+            <Label Text="{Binding Title}" FontSize="20" FontAttributes="Bold" TextColor="Black"/>
+          <Label Text="{Binding Description}" FontSize="15" TextColor="Black"/>
+        </StackLayout>
+  </ContentView.Content>
+</ContentView>

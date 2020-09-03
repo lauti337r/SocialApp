@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             Title="Social App" BackgroundColor="#D15641"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="SocialApp.Views.LoginPage">
+    <StackLayout Orientation="Vertical" BackgroundColor="LightGray" Padding="30" Spacing="40">
+        <BoxView HeightRequest="10"/>
+        <Frame BackgroundColor="White" HasShadow="False" CornerRadius="3">
+            <StackLayout Orientation="Vertical" Spacing="10">
+                <Image HorizontalOptions="Center" WidthRequest="300" Source="logo"/>
+                <Entry  x:Name="Email" Text="{Binding LoginInput.Username}" Placeholder="Username"
+                       PlaceholderColor="White" HeightRequest="40" BackgroundColor="SlateGray"
+                       Keyboard="Email"  
+                       TextColor="White"/>
+                <Entry x:Name="Password" Text="{Binding LoginInput.Password}" Placeholder="Password"   
+                       PlaceholderColor="White" HeightRequest="40" BackgroundColor="SlateGray"
+                       IsPassword="True"
+                       TextColor="White"/>
+            </StackLayout>
+        </Frame>
+        <!-- #D15641 -->
+        <Button Command="{Binding SubmitLoginCommand}" Text="Login" TextColor="White"  
+                    HorizontalOptions="FillAndExpand" CornerRadius="3" FontSize="20"
+                    BackgroundColor="#6EBFC2" />
+    </StackLayout>
+</ContentPage>

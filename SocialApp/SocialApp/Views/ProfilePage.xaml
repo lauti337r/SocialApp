@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             Title="{Binding Title}"
+             x:Class="SocialApp.Views.ProfilePage">
+    <StackLayout Orientation="Vertical" VerticalOptions="StartAndExpand" BackgroundColor="LightGray" Padding="30" Spacing="40">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35" />
+                <RowDefinition Height="2" />
+                <RowDefinition Height="20" />
+                <RowDefinition Height="20"/>
+            </Grid.RowDefinitions>
+            <Frame 
+                CornerRadius="50"
+                HeightRequest="100"
+                WidthRequest="100"
+                Padding="0"
+                IsClippedToBounds="True"
+                Grid.Column="0"
+                BorderColor="Black"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Grid.RowSpan="4"
+                HasShadow="False">
+                <Image Source="{Binding UserProfile.ProfilePictureUrl}" Aspect="AspectFill" />
+            </Frame>
+            <Label Grid.Column="1" Grid.Row="0">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span  Text="{Binding UserProfile.Name}"/>
+                        <Span Text=" (" FontAttributes="None" />
+                        <Span Text="{Binding UserProfile.UserId}" FontAttributes="Bold" />
+                        <Span Text=")" FontAttributes="None" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Frame Grid.Column="1" Grid.Row="1"  HeightRequest="1" HorizontalOptions="FillAndExpand" HasShadow="False" VerticalOptions="StartAndExpand" BorderColor="White"></Frame>
+            <Label Grid.Column="1" Grid.Row="2" Text="{Binding UserProfile.Country}" />
+            <Label Grid.Column="1" Grid.Row="3" Text="{Binding UserProfile.Email}" />
+        </Grid>
+    </StackLayout>
+</ContentPage>

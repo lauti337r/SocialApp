@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SocialApp.Templates.StatusCard">
+    <ContentView.Content>
+        <Frame CornerRadius="5" HasShadow="True" BackgroundColor="DarkGray">
+            <Grid ColumnSpacing="10" RowSpacing="0" Padding="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="2" />
+                    <RowDefinition Height="72" />
+                    <RowDefinition Height="25"/>
+                </Grid.RowDefinitions>
+                <Frame 
+                    CornerRadius="40"
+                    HeightRequest="80"
+                    WidthRequest="80"
+                    Padding="0"
+                    IsClippedToBounds="True"
+                    Grid.Column="0"
+                    BorderColor="Black"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Grid.RowSpan="3"
+                    HasShadow="False">
+                    <Image Source="{Binding ProfilePictureUrl}" Aspect="AspectFill" />
+                </Frame>
+                <Label Grid.Column="1" Grid.Row="0" Text="{Binding StatusTitle}">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="{Binding UserId}" FontAttributes="Bold" />
+                            <Span Text=" - " FontAttributes="None" />
+                            <Span Text="{Binding StatusTitle}" FontAttributes="Italic" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Frame Grid.Column="1" Grid.Row="1"  HeightRequest="1" HorizontalOptions="FillAndExpand" HasShadow="False" VerticalOptions="StartAndExpand" BorderColor="White"></Frame>
+                <Label Grid.Column="1" Grid.Row="2" Text="{Binding Comment}" />
+                <StackLayout Grid.Column="1" Grid.Row="3" Orientation="Horizontal" HorizontalOptions="End" VerticalOptions="End">
+                    <Label Text="{Binding Comments}" />
+                    <Image Source="commentsIcon" />
+                    <Label Text="{Binding Likes}" />
+                    <Image Source="likesIcon" />
+                </StackLayout>
+            </Grid>
+        </Frame>
+    </ContentView.Content>
+</ContentView>

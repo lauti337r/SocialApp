@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  xmlns:prism="http://prismlibrary.com"
+                  xmlns:views="clr-namespace:SocialApp.Views;assembly=SocialApp"
+                  xmlns:converters="clr-namespace:SocialApp.Utilities.Converters;assembly=SocialApp"
+                  prism:ViewModelLocator.AutowireViewModel="True"
+                  x:Class="SocialApp.Views.MainPage">
+    <MasterDetailPage.Resources>
+        <ResourceDictionary>
+            <converters:NotConverter x:Key="NotConverter"/>
+    </ResourceDictionary>
+</MasterDetailPage.Resources>
+    <MasterDetailPage.Master>
+        <ContentPage Title="Menu" BackgroundColor="#D15641" 
+        IconImageSource="{OnPlatform iOS='hamburger.png'}"
+                     Padding="{OnPlatform Default='20', iOS='20,40'}">
+            <StackLayout>
+                <StackLayout Padding="20" IsVisible="{Binding IsLoggedIn}" Spacing="3">
+                    <Button Text="Main Page" TextColor="White" Command="{Binding NavigateCommand}" CommandParameter="MainPage" />
+                    <Button Text="Log out" TextColor="White" Command="{Binding NavigateCommand}" CommandParameter="LogOut" />
+                </StackLayout>
+                <StackLayout Padding="20" IsVisible="{Binding IsLoggedIn, Converter={StaticResource NotConverter}}">
+                    <Button Text="Login" TextColor="White" Command="{Binding NavigateCommand}" CommandParameter="LoginPage" />
+                </StackLayout>
+            </StackLayout>
+        </ContentPage>
+    </MasterDetailPage.Master>
+</MasterDetailPage>
